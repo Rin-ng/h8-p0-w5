@@ -1,36 +1,27 @@
 function highestScore (students) {
+
   var obj = {};
 
- students.sort(function(a,b){return a.score - b.score});
+  for(var i = 0; i < students.length; i++){
+    var className = students[i].class;
 
- students.sort(function(a,b){if(a.class > b.class) return -1;
-    if(a.class < b.class) return 1;
-     return 0;});
-
-
-
- //console.log(students);
-
-
-  for(var i = 0; i < students.length - 1 ; i++){
-    if(students[i].class === students[i+1].class){
-      // console.log(students[i].class);
-      // console.log(students[i+1].class  + students[i+1].score);
-      obj[students[i].class] = {
-      name: students[i + 1].name,
-      score: students[i +1].score,
-    };
+    if(!obj[className]){
+      obj[className] = {
+        name: students[i].name,
+        score: students[i].score
+      };
     }
     else{
-    obj[students[i].class] = {
-      name: students[i].name,
-      score: students[i].score,
-    };
+      if(obj[className] > students[i].score){
+        obj[className] = {
+          name: students[i].name,
+          score:students.score
+        };
+      }
     }
   }
 
-
- return obj;
+  return obj;
 }
 
 // TEST CASE
