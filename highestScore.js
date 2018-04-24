@@ -12,10 +12,11 @@ function highestScore (students) {
       };
     }
     else{
-      if(obj[className] > students[i].score){
-        obj[className] = {
+
+      if(obj[className].score < students[i].score){
+         obj[className] = {
           name: students[i].name,
-          score:students.score
+          score: students[i].score
         };
       }
     }
@@ -38,7 +39,7 @@ console.log(highestScore([
   },
   {
     name: 'Sergei',
-    score: 74,
+    score: 89,
     class: 'foxes'
   },
   {
